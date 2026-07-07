@@ -14,7 +14,11 @@ models:
       - name: customer_id
         description: "Identifier of the customer who placed the order."
         data_tests:
-          - not_null
+         - not_null
+         - relationships:
+            arguments:
+              to: ref('stg_customers')
+              field: customer_id
 
       - name: order_status
         description: "Current status of the order."
@@ -104,6 +108,12 @@ models:
         data_tests:
           - not_null
 
+        # Temporarily disabled.
+        # raw.orders currently contains only Batch 1 of the orders dataset,
+        # while raw.order_items contains the complete dataset.
+        # Re-enable after Batch 2 and Batch 3 are ingested via
+        # Streams, Tasks, and Snowpipe.
+
       - name: order_item_id
         description: "Sequential item number within an order."
         data_tests:
@@ -113,6 +123,10 @@ models:
         description: "Identifier of the purchased product."
         data_tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_products')
+                field: product_id
 
       - name: seller_id
         description: "Identifier of the seller fulfilling the order."
