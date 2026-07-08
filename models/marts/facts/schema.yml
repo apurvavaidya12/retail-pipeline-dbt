@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: fact_order_items
+    description: "Fact table containing one record for each item purchased in an order."
+
+    columns:
+      - name: order_id
+        description: "Identifier of the order."
+        data_tests:
+          - not_null
+
+      - name: order_item_id
+        description: "Sequential item number within an order."
+        data_tests:
+          - not_null
+
+      - name: customer_id
+        description: "Foreign key referencing the customer dimension."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+
+      - name: product_id
+        description: "Foreign key referencing the product dimension."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: product_id
+
+      - name: seller_id
+        description: "Identifier of the seller fulfilling the order."
+        data_tests:
+          - not_null
+
+      - name: order_purchase_timestamp
+        description: "Timestamp when the customer placed the order."
+
+      - name: shipping_limit_date
+        description: "Latest date by which the seller should ship the item."
+
+      - name: order_estimated_delivery_date
+        description: "Estimated delivery date provided to the customer."
+
+      - name: price
+        description: "Price of the purchased product."
+        data_tests:
+          - not_null
+
+      - name: freight_value
+        description: "Shipping cost charged for the order item."

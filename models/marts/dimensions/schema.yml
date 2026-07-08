@@ -1,0 +1,58 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Customer dimension table."
+
+    columns:
+      - name: customer_id
+        description: "Primary key of the customer dimension."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_unique_id
+        description: "Business identifier representing the same customer."
+
+      - name: customer_zip_code_prefix
+        description: "Customer ZIP code prefix."
+
+      - name: customer_city
+        description: "Customer city."
+
+      - name: customer_state
+        description: "Customer state."
+
+  - name: dim_products
+    description: "Product dimension table."
+
+    columns:
+      - name: product_id
+        description: "Primary key of the product dimension."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: product_category_name
+        description: "Product category."
+
+      - name: product_name_lenght
+        description: "Length of the product name."
+
+      - name: product_description_lenght
+        description: "Length of the product description."
+
+      - name: product_photos_qty
+        description: "Number of product photos."
+
+      - name: product_weight_g
+        description: "Weight of the product in grams."
+
+      - name: product_length_cm
+        description: "Product length in centimeters."
+
+      - name: product_height_cm
+        description: "Product height in centimeters."
+
+      - name: product_width_cm
+        description: "Product width in centimeters."
