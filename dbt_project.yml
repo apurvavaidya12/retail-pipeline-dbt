@@ -42,4 +42,13 @@ models:
 
     marts:
       +schema: gold
-      +materialized: table
+
+      dimensions:
+        +materialized: table
+
+      facts:
+        +materialized: table
+
+seeds:
+ retail_pipeline_dbt:
+  +schema: reference

@@ -5,6 +5,12 @@ models:
     description: "Fact table containing one record for each item purchased in an order."
 
     columns:
+      - name: fact_order_item_key
+        description: "Surrogate Key."
+        data_tests:
+          - not_null
+          - unique
+          
       - name: order_id
         description: "Identifier of the order."
         data_tests:
@@ -48,9 +54,13 @@ models:
         description: "Estimated delivery date provided to the customer."
 
       - name: price
-        description: "Price of the purchased product."
+        description: "Price of the product."
         data_tests:
           - not_null
+          - positive_value
 
       - name: freight_value
         description: "Shipping cost charged for the order item."
+      
+      - name: dbt_loaded_at
+        description: "Added a current timestamp macro"

@@ -8,6 +8,9 @@ target/
 logs/
 dbt_packages/
 
+# Local datasets
+Other data/
+
 # VS Code
 .vscode/
 
