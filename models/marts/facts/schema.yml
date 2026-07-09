@@ -63,4 +63,4 @@ models:
         description: "Shipping cost charged for the order item."
       
       - name: dbt_loaded_at
-        description: "Added a current timestamp macro"
+        description: "Timestamp indicating when the record was loaded by dbt."
