@@ -26,6 +26,112 @@ Throughout the project, several production-oriented concepts have been implement
 * Version control with Git and GitHub
 * Continuous Integration (CI) using GitHub Actions for automated dbt validation
 
+
+## ✅ Implementation Status
+
+| Feature                               | Status |
+| ------------------------------------- | :----: |
+| AWS S3 Data Lake                      |    ✅   |
+| Snowflake Data Warehouse              |    ✅   |
+| External Stages                       |    ✅   |
+| CSV File Formats                      |    ✅   |
+| Snowpipe Auto-Ingest                  |    ✅   |
+| RAW → SILVER → GOLD Architecture      |    ✅   |
+| dbt Staging Models                    |    ✅   |
+| dbt Intermediate Models               |    ✅   |
+| Star Schema (Fact & Dimension Tables) |    ✅   |
+| Incremental Models                    |    ✅   |
+| dbt Snapshots (SCD Type 2)            |    ✅   |
+| dbt Generic Tests                     |    ✅   |
+| dbt Seeds                             |    ✅   |
+| dbt Macros                            |    ✅   |
+| Snowflake Streams (CDC)               |    ✅   |
+| Snowflake Tasks                       |    ✅   |
+| Role-Based Access Control (RBAC)      |    ✅   |
+| Git Version Control                   |    ✅   |
+| GitHub Actions (CI)                   |    ✅   |
+| End-to-End Pipeline Validation        |    ✅   |
+
+# 🧪 End-to-End Validation Performed
+
+To verify that every component of the pipeline behaved as expected, multiple validation scenarios were executed throughout the project.
+
+| Validation Scenario                                                         |  Result  |
+| --------------------------------------------------------------------------- | :------: |
+| Snowpipe automatically ingests newly uploaded files from AWS S3             | ✅ Passed |
+| RAW layer receives only newly uploaded batches                              | ✅ Passed |
+| Incremental dbt model processes only new records on subsequent runs         | ✅ Passed |
+| Re-running incremental models without new data inserts zero additional rows | ✅ Passed |
+| Snapshot correctly maintains historical customer records (SCD Type 2)       | ✅ Passed |
+| Snowflake Streams capture unconsumed data changes                           | ✅ Passed |
+| Snowflake Tasks execute successfully for automation demonstrations          | ✅ Passed |
+| GitHub Actions automatically triggers after every push to the `main` branch | ✅ Passed |
+| dbt models execute successfully within the CI pipeline                      | ✅ Passed |
+| dbt Generic Tests complete successfully without errors                      | ✅ Passed |
+| Gold layer tables update correctly after new data ingestion                 | ✅ Passed |
+
+---
+
+## 📸 Project Screenshots
+
+### Architecture Overview
+
+![Architecture Diagram](architecture/architecture.png)
+
+---
+
+### AWS S3 Bucket Structure
+
+![AWS S3](architecture/screenshots/01_s3_bucket.png)
+
+---
+
+### Snowpipe Auto-Ingest
+
+![Snowpipe](architecture/screenshots/02_snowpipe.png)
+
+---
+
+### RAW Layer Tables
+
+![RAW Tables](architecture/screenshots/03_raw_tables.png)
+
+---
+
+### dbt Lineage Graph
+
+![dbt Lineage](architecture/screenshots/04_dbt_lineage.png)
+
+---
+
+### GitHub Actions CI Pipeline
+
+![GitHub Actions](architecture/screenshots/05_github_actions.png)
+
+---
+
+### dbt Test Results
+
+![dbt Tests](architecture/screenshots/06_dbt_tests.png)
+
+---
+
+### Snowflake Streams
+
+![Streams](architecture/screenshots/07_streams.png)
+
+---
+
+### Snowflake Tasks
+
+![Tasks](architecture/screenshots/08_tasks.png)
+
+---
+
+### Gold Layer Tables
+
+![Gold Layer](architecture/screenshots/09_gold_tables.png)
+
 ---
 
 ## 🎯 Business Objective
